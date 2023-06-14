@@ -88,7 +88,15 @@ def swine_align(player_score, opponent_score):
     False
     """
     # BEGIN PROBLEM 4a
-    "*** YOUR CODE HERE ***"
+    def Greatest_Common_Divisor(a, b):
+        gcd = min(a, b)
+        while a % gcd != 0 or b % gcd != 0:
+            gcd -= 1
+        return gcd
+    # Special case where one score is 0
+    if player_score == 0 or opponent_score == 0:
+        return False
+    return Greatest_Common_Divisor(player_score, opponent_score) >= 10
     # END PROBLEM 4a
 
 
