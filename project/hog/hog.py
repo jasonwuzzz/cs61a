@@ -118,7 +118,7 @@ def pig_pass(player_score, opponent_score):
     False
     """
     # BEGIN PROBLEM 4b
-    "*** YOUR CODE HERE ***"
+    return player_score + 3 > opponent_score and player_score < opponent_score
     # END PROBLEM 4b
 
 
