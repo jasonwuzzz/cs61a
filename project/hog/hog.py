@@ -157,31 +157,30 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     """
     who = 0  # Who is about to take a turn, 0 (first) or 1 (second)
     # BEGIN PROBLEM 5
-    while True:
-        if who == 0:
-            num_rolls = strategy0(score0, score1)
-            score0 += take_turn(num_rolls, score1, dice)
+    strategys = {0: strategy0, 1: strategy1}
+    # These are shallow copy of score0 and score1
+    scores = {0: score0, 1: score1}
+
+    while scores[0] < goal  and scores[1] < goal:
+        opponent = other(who)
+        # The first free turn
+        turns = 1
+        while turns == 1 or extra_turn(scores[who], scores[opponent]): 
+            # Execute a single turn
+            num_rolls = strategys[who](scores[who], scores[opponent])
+            scores[who] += take_turn(num_rolls, scores[opponent], dice)
+            turns += 1
+            # Update actual scores
+            if who == 0:
+                score0, score1 = scores[who], scores[opponent]
+            else:
+                score0, score1 = scores[opponent], scores[who]
+            # Make a commentary after each turn
             say = say(score0, score1)
-            if score0 >= goal:
-                return score0, score1
-            while extra_turn(score0, score1):
-                num_rolls = strategy0(score0, score1)
-                score0 += take_turn(num_rolls, score1, dice)
-                say = say(score0, score1)
-                if score0 >= goal:
-                    return score0, score1
-        else:
-            num_rolls = strategy1(score1, score0)
-            score1 += take_turn(num_rolls, score0, dice)
-            say = say(score0, score1)
-            if score1 >= goal:
-                return score0, score1
-            while extra_turn(score1, score0):
-                num_rolls = strategy1(score1, score0)
-                score1 += take_turn(num_rolls, score0, dice)
-                say = say(score0, score1)
-                if score1 >= goal:
-                    return score0, score1
+            # Check whether game is end
+            if scores[who] >= goal:
+                break
+        # switch player
         who = other(who)
     # END PROBLEM 5
     # (note that the indentation for the problem 6 prompt (***YOUR CODE HERE***) might be misleading)
