@@ -339,7 +339,23 @@ def max_scoring_num_rolls(dice=six_sided, trials_count=1000):
     1
     """
     # BEGIN PROBLEM 9
-    "*** YOUR CODE HERE ***"
+    averaged_score = make_averaged(roll_dice, trials_count)
+    """
+    scores = []
+    for num in range(1, 11):
+        scores.append(averaged_score(num, dice))
+    return scores.index(max(scores)) + 1
+    """
+    max_num = 1
+    max_score = 0
+    for num in range(1, 11):
+        # Assign the result to a new variable in case of calling averaged_score again and affecting the dice
+        score = averaged_score(num, dice)
+        if score > max_score:
+            max_score = score
+            max_num = num
+    return max_num
+
     # END PROBLEM 9
 
 
@@ -368,7 +384,7 @@ def run_experiments():
         six_sided_max = max_scoring_num_rolls(six_sided)
         print('Max scoring num rolls for six-sided dice:', six_sided_max)
 
-    if False:  # Change to True to test always_roll(8)
+    if True:  # Change to True to test always_roll(8)
         print('always_roll(8) win rate:', average_win_rate(always_roll(8)))
 
     if False:  # Change to True to test bacon_strategy
