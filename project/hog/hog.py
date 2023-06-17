@@ -275,11 +275,12 @@ def announce_highest(who, last_score=0, running_high=0):
             score = score0
         else:
             score = score1
+        highest = running_high
         diff = score - last_score
-        if diff > running_high:
+        if diff > highest:
             print(diff, "point(s)!", "The most yet for Player", who)
-            running_high = diff
-        return announce(who, score, running_high)
+            highest = diff
+        return announce_highest(who, score, highest)
     return say
     # END PROBLEM 7
 
