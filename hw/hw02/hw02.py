@@ -22,7 +22,14 @@ def num_eights(x):
     ...       ['Assign', 'AugAssign'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    # Base Case
+    if x < 10:
+        if x == 8:
+            return 1
+        else:
+            return 0
+    else:
+        return num_eights(x // 10) + num_eights(x % 10)
 
 
 def pingpong(n):
@@ -57,9 +64,17 @@ def pingpong(n):
     >>> check(HW_SOURCE_FILE, 'pingpong', ['Assign', 'AugAssign'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    def helper(index, value, dir):
+        if index != n:
+            # Check the direction
+            if num_eights(index + 1) > 0 or (index + 1) % 8 == 0:
+                return helper(index + 1, value + dir, -dir)
+            else:
+                return helper(index + 1, value + dir, dir)
+        return value
+    return helper(1, 1, 1)
 
-
+    
 def missing_digits(n):
     """Given a number a that is in sorted, increasing order,
     return the number of missing digits in n. A missing digit is
@@ -87,11 +102,22 @@ def missing_digits(n):
     >>> check(HW_SOURCE_FILE, 'missing_digits', ['While', 'For'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    # Base Case 1: single number.
+    if n < 10:
+        return 0
+    # Base Case 2: double number.
+    elif n < 100:
+        if n % 10 - n // 10 > 1:
+            return n % 10 - n // 10 - 1
+        else:
+            return 0
+    # Divide into a smaller numebr and a double number.
+    else:
+        return missing_digits(n // 10) + missing_digits(n % 100)
 
 
 def next_largest_coin(coin):
-    """Return the next coin. 
+    """Return the next largest coin. 
     >>> next_largest_coin(1)
     5
     >>> next_largest_coin(5)
@@ -106,6 +132,24 @@ def next_largest_coin(coin):
         return 10
     elif coin == 10:
         return 25
+
+
+def next_smallest_coin(coin):
+    """Return the next smallest coin.
+    >>> next_largest_coin(5)
+    1
+    >>> next_largest_coin(10)
+    5
+    >>> next_largest_coin(25)
+    10
+    >>> next_largest_coin(2) # Other values return None
+    """
+    if coin == 5:
+        return 1
+    elif coin == 10:
+        return 5
+    elif coin == 25:
+        return 10
 
 
 def count_coins(total):
@@ -123,8 +167,22 @@ def count_coins(total):
     >>> check(HW_SOURCE_FILE, 'count_coins', ['While', 'For'])                                          
     True
     """
-    "*** YOUR CODE HERE ***"
+    def helper(coin, n):
+        """ Used to keep track of more than one value across recursive calls.
 
+        """
+        # Base Case
+        if n < 0:
+            return 0
+        elif n == 0:
+            return 1
+        elif coin == 1:
+            return 1
+        # Recursion Begins!
+        else:
+            return helper(coin, n - coin) + helper(next_smallest_coin(coin), n)
+    return helper(25, total)
+    
 
 from operator import sub, mul
 
@@ -138,5 +196,3 @@ def make_anonymous_factorial():
     >>> check(HW_SOURCE_FILE, 'make_anonymous_factorial', ['Assign', 'AugAssign', 'FunctionDef', 'Recursion'])
     True
     """
-    return 'YOUR_EXPRESSION_HERE'
-
