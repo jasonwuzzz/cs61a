@@ -13,7 +13,7 @@ Log structure divided by each week:
 - [ ] Lecture
 - [x] Reading
     [22-Sep-2023] 2.1 Introduction
-    [23-Sep-2023] 2.3 Sequences
+    [23-Sep-2023] 2.3 Sequences: Before Page4 "High-Order Functions"
 - [ ] Lab / Discussion
 - [ ] Project
 
