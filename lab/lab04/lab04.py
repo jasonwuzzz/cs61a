@@ -18,7 +18,12 @@ def skip_add(n):
     ...       ['While', 'For'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return n + skip_add(n - 2)
 
 
 def summation(n, term):
@@ -40,7 +45,10 @@ def summation(n, term):
     True
     """
     assert n >= 1
-    "*** YOUR CODE HERE ***"
+    if n == 1:
+        return term(1)
+    else:
+        return term(n) + summation(n -1 , term)
 
 
 def paths(m, n):
@@ -56,8 +64,10 @@ def paths(m, n):
     >>> paths(1, 157)
     1
     """
-    "*** YOUR CODE HERE ***"
-
+    if 1 in (m, n):
+        return 1
+    else:
+        return paths(m - 1, n) + paths(m, n - 1)
 
 
 def max_subseq(n, t):
@@ -104,7 +114,27 @@ def max_subseq(n, t):
     >>> max_subseq(12345, 1)
     5
     """
-    "*** YOUR CODE HERE ***"
+    def helper(n, t):
+        """
+        Find all the subsequences of n at the length of t.
+        """
+        # Base Case 1: Return all the numbers in n
+        if t == 1:
+            return [int(i) for i in str(n)]
+        # Base Case 2: n is a single digit or the length of n is t.
+        elif n < 10 or len(str(n)) == t:
+            return [n]
+        # Recursive Case: Consider whether use the last digit or not
+        else:
+            # if use the last digit
+            use_last = [x * 10 + n % 10 for x in helper(n // 10, t - 1)]
+            not_use_last = helper(n // 10, t)
+            return use_last + not_use_last    
+    # 0 is of length of 0
+    if t == 0:
+        return 0
+    else:
+        return max([max(helper(n, i)) for i in range(1, t + 1)]) 
 
 
 def add_chars(w1, w2):
@@ -133,5 +163,20 @@ def add_chars(w1, w2):
     ...       ['For', 'While', 'Set', 'SetComp']) # Must use recursion
     True
     """
-    "*** YOUR CODE HERE ***"
+    def get_loc(letter, w2, index=0):
+        """Get the location of letter in w2
+        """
+        if letter == w2[0]:
+            return index
+        else:
+            return get_loc(letter, w2[1:], index + 1)
+    if w1 == w2:
+        return ""
+    elif w1 == "":
+        return w2
+    else:
+        # add_chars(w1, w2) -> add_chars(w1[1:], w2) excludes w1[0] using the leftmost one.
+        location = get_loc(w1[0], w2)
+        sub_seq = add_chars(w1[1:], w2)
+        return sub_seq[:location] + sub_seq[location + 1:]
 

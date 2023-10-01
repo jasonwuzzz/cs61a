@@ -21,7 +21,8 @@ Log structure divided by each week:
     [Sun 01 Oct 2023] 2.3.1 - 2.3.5
     [] Ch. 2.3
     [] Ch. 2.2
-- [ ] Lab
+- [x] Lab
+    [Sun 01 Oct 2023] Lab 04
 - [ ] Discussion
 - [ ] Project
 
