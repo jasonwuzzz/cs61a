@@ -13,7 +13,7 @@ Log structure divided by each week:
 ### Week5
 - [ ] Lecture
     [Sun 01 Oct 2023] Lec 10: Containers
-    [] Lec 11: Data Abstraction
+    [Mon 02 Oct 2023] Lec 11: Data Abstraction
     [] Lec 12: Trees
 - [x] Reading
     [Fri 22 Sep 2023] 2.1 Introduction
