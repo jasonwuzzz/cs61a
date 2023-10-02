@@ -19,8 +19,7 @@ Log structure divided by each week:
     [Fri 22 Sep 2023] 2.1 Introduction
     [Sat 23 Sep 2023] 2.3.1 - 2.3.3
     [Sun 01 Oct 2023] 2.3.1 - 2.3.5
-    [] Ch. 2.3
-    [] Ch. 2.2
+    [Mon 02 Oct 2023] 2.2
 - [x] Lab
     [Sun 01 Oct 2023] Lab 04
 - [ ] Discussion
