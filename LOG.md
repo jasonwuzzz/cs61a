@@ -24,6 +24,7 @@ Log structure divided by each week:
     [Sun 01 Oct 2023] Lab 04
 - [ ] Discussion
 - [ ] Project
+    [Mon 02 Oct 2023] p1.1-1.4, p2.5-2.6
 
 ### Week6
 

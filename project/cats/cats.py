@@ -16,7 +16,15 @@ def choose(paragraphs, select, k):
     the empty string.
     """
     # BEGIN PROBLEM 1
-    "*** YOUR CODE HERE ***"
+    count = 0       # track the # of paragraphs that satisfy select()
+    for i in range(len(paragraphs)):
+        if select(paragraphs[i]):
+            count += 1
+        if count == k + 1:
+            return paragraphs[i]
+    # Exceed the length of PARAGRAPHS
+    return ""
+
     # END PROBLEM 1
 
 
@@ -32,7 +40,14 @@ def about(topic):
     """
     assert all([lower(x) == x for x in topic]), 'topics should be lowercase.'
     # BEGIN PROBLEM 2
-    "*** YOUR CODE HERE ***"
+    def in_topic(p):
+        words = split(lower(remove_punctuation(p)))
+        for t in topic:
+            if t in words:
+                return True
+        else:
+            return False
+    return in_topic
     # END PROBLEM 2
 
 
@@ -56,7 +71,15 @@ def accuracy(typed, reference):
     typed_words = split(typed)
     reference_words = split(reference)
     # BEGIN PROBLEM 3
-    "*** YOUR CODE HERE ***"
+    # If reference is empty
+    numerator = 0
+    denominator = len(typed_words)
+    if denominator == 0:
+        return 0.0
+    for i in range(min(len(typed_words), len(reference_words))): 
+        if typed_words[i] == reference_words[i]:
+            numerator += 1
+    return 100 * numerator / len(typed_words)
     # END PROBLEM 3
 
 
@@ -64,7 +87,7 @@ def wpm(typed, elapsed):
     """Return the words-per-minute (WPM) of the TYPED string."""
     assert elapsed > 0, 'Elapsed time must be positive'
     # BEGIN PROBLEM 4
-    "*** YOUR CODE HERE ***"
+    return (len(typed) / 5) / (elapsed / 60)
     # END PROBLEM 4
 
 
@@ -74,7 +97,22 @@ def autocorrect(user_word, valid_words, diff_function, limit):
     than LIMIT.
     """
     # BEGIN PROBLEM 5
-    "*** YOUR CODE HERE ***"
+    # Case 1: user_word is contained in valid_words.
+    if user_word in valid_words:
+        return user_word
+    # Case 2: Computer the differences between user_word and all valid words.
+    diffs = [diff_function(user_word, word, limit) for word in valid_words]
+    # Case 2.1: If lowest_diff is greater than limit.
+    if min(diffs) > limit:
+        return user_word
+    # Case 2.2: Find the index of the first lowest valid word.
+    else:
+        index, lowest_diff = 0, diffs[0]
+        for i in range(1, len(diffs)):
+            if diffs[i] < lowest_diff:
+                index = i
+                lowest_diff = diffs[i]
+        return valid_words[index]
     # END PROBLEM 5
 
 
@@ -84,7 +122,21 @@ def shifty_shifts(start, goal, limit):
     their lengths.
     """
     # BEGIN PROBLEM 6
-    assert False, 'Remove this line'
+    def helper(start, goal, diff):
+        # Indicator for the recursion to go either direction.
+        indicator = int(start[0] != goal[0])
+        # Additional parameter DIFF tracks the differences in recursion procedure and stop it once DIFF reaches LIMIT.
+        if diff > limit:
+            return limit + 1
+        # Base Case: The either length of the words is 1.
+        elif 1 in [len(start), len(goal)]:
+            abs_diff = abs(len(start) - len(goal))
+            return abs_diff + indicator
+        # Recursion Case
+        else:
+            return helper(start[1:], goal[1:], diff + indicator) + indicator
+
+    return helper(start, goal, diff=0) 
     # END PROBLEM 6
 
 
