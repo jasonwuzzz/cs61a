@@ -163,20 +163,27 @@ def add_chars(w1, w2):
     ...       ['For', 'While', 'Set', 'SetComp']) # Must use recursion
     True
     """
-    def get_loc(letter, w2, index=0):
-        """Get the location of letter in w2
-        """
-        if letter == w2[0]:
+    def get_loc(char, w2, index=0):
+        """helper function to find the location of  w1[0] in w2."""
+        if char == w2[0]:
             return index
         else:
-            return get_loc(letter, w2[1:], index + 1)
-    if w1 == w2:
-        return ""
-    elif w1 == "":
+            return get_loc(char, w2[1:], index + 1)
+    if w1 == "":
         return w2
     else:
-        # add_chars(w1, w2) -> add_chars(w1[1:], w2) excludes w1[0] using the leftmost one.
-        location = get_loc(w1[0], w2)
+        # get the add_chars without the first char in w1.
         sub_seq = add_chars(w1[1:], w2)
-        return sub_seq[:location] + sub_seq[location + 1:]
-
+        # get rid of w1[0] in the sub_seq.
+        index = get_loc(w1[0], w2)
+        return sub_seq[:index] + sub_seq[index + 1:]
+    # def add_chars(w1, w2):
+    # """Tree recursion version in Lecture 12 Q&A."""
+    # # Base Case
+    # if w1 == "":
+    #     return w2
+    # # Consider the occurence of w1[0] in w2
+    # elif w1[0] == w2[0]:
+    #     return add_chars(w1[1:], w2[1:])
+    # else:
+    #     return w2[0] + add_chars(w1, w2[1:])
