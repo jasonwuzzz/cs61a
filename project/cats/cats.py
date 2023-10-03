@@ -91,6 +91,11 @@ def wpm(typed, elapsed):
     # END PROBLEM 4
 
 
+###########
+# Phase 2 #
+###########
+
+
 def autocorrect(user_word, valid_words, diff_function, limit):
     """Returns the element of VALID_WORDS that has the smallest difference
     from USER_WORD. Instead returns USER_WORD if that difference is greater
@@ -176,7 +181,14 @@ def final_diff(start, goal, limit):
 def report_progress(typed, prompt, user_id, send):
     """Send a report of your id and progress so far to the multiplayer server."""
     # BEGIN PROBLEM 8
-    "*** YOUR CODE HERE ***"
+    def get_progress(typed, prompt, n):
+        if typed == [] or typed[0] != prompt[0]:
+            return n
+        else:
+            return get_progress(typed[1:], prompt[1:], n + 1)
+    ratio = get_progress(typed, prompt, 0) / len(prompt)
+    send({"id": user_id, "progress": ratio})
+    return ratio
     # END PROBLEM 8
 
 
@@ -202,7 +214,11 @@ def time_per_word(times_per_player, words):
         words: a list of words, in the order they are typed.
     """
     # BEGIN PROBLEM 9
-    "*** YOUR CODE HERE ***"
+    def get_time_diff(time):
+        """Given a list of timestamps, return a list of the corresponding time differences"""
+        return [time[i + 1] - time[i] for i in range(len(time) - 1)]
+    times = [get_time_diff(tpp) for tpp in times_per_player]
+    return game(words, times)
     # END PROBLEM 9
 
 
@@ -217,7 +233,18 @@ def fastest_words(game):
     player_indices = range(len(all_times(game)))  # contains an *index* for each player
     word_indices = range(len(all_words(game)))    # contains an *index* for each word
     # BEGIN PROBLEM 10
-    "*** YOUR CODE HERE ***"
+    words = [[] for pi in player_indices]
+    # for each word in words:
+    for wi in word_indices:
+        # get the word
+        word = word_at(game, wi)
+        # get the time of all players typing this word
+        times_of_word = [time(game, pi, wi) for pi in player_indices]
+        # get the index (player_num) of the lowest value in times
+        player_num = times_of_word.index(min(times_of_word))
+        # put the word in the player_num'th list
+        words[player_num] += [word]
+    return words
     # END PROBLEM 10
 
 
