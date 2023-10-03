@@ -140,25 +140,31 @@ def shifty_shifts(start, goal, limit):
 
 
 def pawssible_patches(start, goal, limit):
-    """A diff function that computes the edit distance from START to GOAL."""
-    if start == goal: # Fill in the condition
-        # BEGIN
-        return 0
-        # END
-
-    elif "" in [start, goal]: # Feel free to remove or add additional cases
-        # BEGIN
-        return max(len(goal), len(goal))
-        # END
-
-    else:
-        # Fill in these lines
-        add_diff = pawssible_patches(start, goal, limit) 
-        remove_diff = pawssible_patches(start, goal, limit)
-        substitute_diff = pawssible_patches(start, goal, limit)
-        # BEGIN
-        return add_diff + remove_diff + substitute_diff 
-        # END
+    """A diff function that computes the edit distance from START to GOAL.
+    
+    1. Returns the minimum number of edit operations k.
+    2. We can then assume that the k - 1 operations are also optimal!!!
+    3. We can conclude from the dynamic programming:
+        minimum operations from ADD, REMOVE, and SUBSTITUTE to transform start to goal after k - 1 times of operations.
+    """
+    def helper(start, goal, diff):
+        # Reach out of LIMIT
+        if diff > limit:
+            return limit + 1
+        # Base Case
+        elif "" in [start, goal]:
+            return max(len(start), len(goal))
+        # Recursion 1: Do nothing, move to the substring.
+        elif start[0] == goal[0]:
+            return helper(start[1:], goal[1:], diff)
+        else:
+            add_diff = helper(start, goal[1:], diff + 1) + 1
+            remove_diff = helper(start[1:], goal, diff + 1) + 1
+            substitute_diff = helper(start[1:], goal[1:], diff + 1) + 1
+            # BEGIN
+            return min(add_diff, remove_diff, substitute_diff)
+            # END
+    return helper(start, goal, 0)
 
 
 def final_diff(start, goal, limit):
