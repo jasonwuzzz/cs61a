@@ -128,43 +128,41 @@ def shifty_shifts(start, goal, limit):
     """
     # BEGIN PROBLEM 6
     def helper(start, goal, diff):
-        # Indicator for the recursion to go either direction.
-        indicator = int(start[0] != goal[0])
-        # Additional parameter DIFF tracks the differences in recursion procedure and stop it once DIFF reaches LIMIT.
+        """Tail Recursion: return the difference between start and goal"""
+        # When the difference hits limit 
         if diff > limit:
             return limit + 1
-        # Base Case: The either length of the words is 1.
-        elif 1 in [len(start), len(goal)]:
-            abs_diff = abs(len(start) - len(goal))
-            return abs_diff + indicator
-        # Recursion Case
+        # Base Case
+        if "" in [start, goal]:
+            return max(len(start), len(goal))
+        # Recursion Phase
+        elif start[0] == goal[0]:
+            return helper(start[1:], goal[1:], diff)
         else:
-            return helper(start[1:], goal[1:], diff + indicator) + indicator
-
-    return helper(start, goal, diff=0) 
+            return helper(start[1:], goal[1:], diff + 1) + 1
+    return helper(start, goal, diff=0)
     # END PROBLEM 6
 
 
 def pawssible_patches(start, goal, limit):
     """A diff function that computes the edit distance from START to GOAL."""
-    assert False, 'Remove this line'
-
-    if ______________: # Fill in the condition
+    if start == goal: # Fill in the condition
         # BEGIN
-        "*** YOUR CODE HERE ***"
+        return 0
         # END
 
-    elif ___________: # Feel free to remove or add additional cases
+    elif "" in [start, goal]: # Feel free to remove or add additional cases
         # BEGIN
-        "*** YOUR CODE HERE ***"
+        return max(len(goal), len(goal))
         # END
 
     else:
-        add_diff = ... # Fill in these lines
-        remove_diff = ...
-        substitute_diff = ...
+        # Fill in these lines
+        add_diff = pawssible_patches(start, goal, limit) 
+        remove_diff = pawssible_patches(start, goal, limit)
+        substitute_diff = pawssible_patches(start, goal, limit)
         # BEGIN
-        "*** YOUR CODE HERE ***"
+        return add_diff + remove_diff + substitute_diff 
         # END
 
 
