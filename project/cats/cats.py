@@ -105,19 +105,14 @@ def autocorrect(user_word, valid_words, diff_function, limit):
     # Case 1: user_word is contained in valid_words.
     if user_word in valid_words:
         return user_word
-    # Case 2: Computer the differences between user_word and all valid words.
-    diffs = [diff_function(user_word, word, limit) for word in valid_words]
-    # Case 2.1: If lowest_diff is greater than limit.
-    if min(diffs) > limit:
+    # Case 2: get the word that has the lowest diff from user_word
+    word = min(valid_words, key=lambda x:diff_function(user_word, x, limit))        # use the key argument to avoid indexing
+    # Case 2.1: diff is greater than limit
+    if diff_function(user_word, word, limit) > limit:
         return user_word
-    # Case 2.2: Find the index of the first lowest valid word.
+    # Case 2.2
     else:
-        index, lowest_diff = 0, diffs[0]
-        for i in range(1, len(diffs)):
-            if diffs[i] < lowest_diff:
-                index = i
-                lowest_diff = diffs[i]
-        return valid_words[index]
+        return word
     # END PROBLEM 5
 
 
