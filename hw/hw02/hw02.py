@@ -196,3 +196,11 @@ def make_anonymous_factorial():
     >>> check(HW_SOURCE_FILE, 'make_anonymous_factorial', ['Assign', 'AugAssign', 'FunctionDef', 'Recursion'])
     True
     """
+    # fact = lambda n: 1 if n == 1 else mul(n, fact(sub(n, 1)))
+    # Step 1: get rid of the name FACT
+    # lambda n, fact: 1 if n == 1 else mul(n, fact(sub(n, 1)))
+    # Step 2: However, it takes in two argumens. We need find a way to wrap up FACT.
+    # lambda n: lambda f: f(n, f)
+    # Step 3: Bind together (add parameter f to call itself recursively)
+    # lambda n: (lambda f: f(n, f)) (lambda n, fact: 1 if n == 1 else mul(n, fact(sub(n, 1), fact))) --> func to call on.
+    return lambda n: (lambda f: f(n, f)) (lambda n, fact: 1 if n == 1 else mul(n, fact(sub(n, 1), fact)))
