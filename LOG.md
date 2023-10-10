@@ -36,8 +36,8 @@ Log structure divided by each week:
     - [] Lec 15: Mutable Values
 - [ ] Reading
     - [] 2.4
-- [ ] Lab
-    - [] Lab 05
+- [x] Lab
+    - [Tue 10 Oct 2023] Lab 05
 - [ ] Discussion
     - [] Disc 05
 - [ ] Homework
