@@ -1,6 +1,8 @@
 HW_SOURCE_FILE=__file__
 
-
+########################
+#####   Mobile    ######
+########################
 def mobile(left, right):
     """Construct a mobile from a left arm and a right arm."""
     assert is_arm(left), "left must be a arm"
@@ -43,12 +45,12 @@ def end(s):
 def planet(size):
     """Construct a planet of some size."""
     assert size > 0
-    "*** YOUR CODE HERE ***"
+    return ['planet', size]
 
 def size(w):
     """Select the size of a planet."""
     assert is_planet(w), 'must call size on a planet'
-    "*** YOUR CODE HERE ***"
+    return w[1]
 
 def is_planet(w):
     """Whether w is a planet."""
@@ -104,7 +106,12 @@ def balanced(m):
     >>> check(HW_SOURCE_FILE, 'balanced', ['Index'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    if is_planet(m):
+        return True
+    left_arm, right_arm = left(m), right(m)
+    left_torque = total_weight(end(left_arm)) * length(left_arm)
+    right_torque = total_weight(end(right_arm)) * length(right_arm)
+    return left_torque == right_torque and balanced(end(left_arm)) and balanced(end(right_arm))
 
 def totals_tree(m):
     """Return a tree representing the mobile with its total weight at the root.
@@ -135,9 +142,16 @@ def totals_tree(m):
     >>> check(HW_SOURCE_FILE, 'totals_tree', ['Index'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    if is_planet(m):
+        return tree(size(m))
+    else:
+        l, r = end(left(m)), end(right(m))
+        return tree(total_weight(l) + total_weight(r), [totals_tree(l), totals_tree(r)])
 
 
+########################
+######   Tree    #######
+########################
 def replace_leaf(t, find_value, replace_value):
     """Returns a new tree where every leaf value equal to find_value has
     been replaced with replace_value.
@@ -167,7 +181,11 @@ def replace_leaf(t, find_value, replace_value):
     >>> laerad == yggdrasil # Make sure original tree is unmodified
     True
     """
-    "*** YOUR CODE HERE ***"
+    if label(t) == find_value and is_leaf(t):
+        new_label = replace_value
+    else:
+        new_label = label(t)
+    return tree(new_label, [replace_leaf(branch, find_value, replace_value) for branch in branches(t)])
 
 
 def preorder(t):
@@ -180,7 +198,13 @@ def preorder(t):
     >>> preorder(tree(2, [tree(4, [tree(6)])]))
     [2, 4, 6]
     """
-    "*** YOUR CODE HERE ***"
+    orders = [label(t)]
+    if is_leaf(t):
+        return orders
+    else:
+        for branch in branches(t):
+            orders += preorder(branch)
+        return orders
 
 
 def has_path(t, word):
@@ -212,20 +236,27 @@ def has_path(t, word):
     False
     """
     assert len(word) > 0, 'no path for empty word.'
-    "*** YOUR CODE HERE ***"
+    if len(word) == 1:
+        return label(t) == word[0]
+    else:
+        return label(t) == word[0] and True in [has_path(branch, word[1:]) for branch in branches(t)]
 
 
+########################
+###  Extra Qustions  ###
+########################
 def interval(a, b):
     """Construct an interval from a to b."""
     return [a, b]
 
 def lower_bound(x):
     """Return the lower bound of interval x."""
-    "*** YOUR CODE HERE ***"
+    return x[0]
 
 def upper_bound(x):
     """Return the upper bound of interval x."""
-    "*** YOUR CODE HERE ***"
+    return x[1]
+
 def str_interval(x):
     """Return a string representation of interval x.
     """
@@ -237,30 +268,30 @@ def add_interval(x, y):
     lower = lower_bound(x) + lower_bound(y)
     upper = upper_bound(x) + upper_bound(y)
     return interval(lower, upper)
+
 def mul_interval(x, y):
     """Return the interval that contains the product of any value in x and any
     value in y."""
-    p1 = x[0] * y[0]
-    p2 = x[0] * y[1]
-    p3 = x[1] * y[0]
-    p4 = x[1] * y[1]
-    return [min(p1, p2, p3, p4), max(p1, p2, p3, p4)]
-
+    p1 = lower_bound(x) * lower_bound(y)
+    p2 = lower_bound(x) * upper_bound(y)
+    p3 = upper_bound(x) * lower_bound(y)
+    p4 = upper_bound(x) * upper_bound(y)
+    return interval(min(p1, p2, p3, p4), max(p1, p2, p3, p4))
 
 def sub_interval(x, y):
     """Return the interval that contains the difference between any value in x
     and any value in y."""
-    "*** YOUR CODE HERE ***"
-
+    lower = lower_bound(x) - upper_bound(y)
+    upper = upper_bound(x) - lower_bound(y)
+    return interval(lower, upper)
 
 def div_interval(x, y):
     """Return the interval that contains the quotient of any value in x divided by
     any value in y. Division is implemented as the multiplication of x by the
     reciprocal of y."""
-    "*** YOUR CODE HERE ***"
+    assert 0 > upper_bound(y) or 0 < lower_bound(y)
     reciprocal_y = interval(1/upper_bound(y), 1/lower_bound(y))
     return mul_interval(x, reciprocal_y)
-
 
 def par1(r1, r2):
     return div_interval(mul_interval(r1, r2), add_interval(r1, r2))
@@ -270,6 +301,7 @@ def par2(r1, r2):
     rep_r1 = div_interval(one, r1)
     rep_r2 = div_interval(one, r2)
     return div_interval(one, add_interval(rep_r1, rep_r2))
+
 def check_par():
     """Return two intervals that give different results for parallel resistors.
 
@@ -279,14 +311,12 @@ def check_par():
     >>> lower_bound(x) != lower_bound(y) or upper_bound(x) != upper_bound(y)
     True
     """
-    r1 = interval(1, 1) # Replace this line!
-    r2 = interval(1, 1) # Replace this line!
+    r1 = interval(2, 4) # Replace this line!
+    r2 = interval(1, 8) # Replace this line!
     return r1, r2
 
-
 def multiple_references_explanation():
-    return """The multiple reference problem..."""
-
+    return """IDK"""
 
 def quadratic(x, a, b, c):
     """Return the interval that is the range of the quadratic defined by
@@ -297,12 +327,18 @@ def quadratic(x, a, b, c):
     >>> str_interval(quadratic(interval(1, 3), 2, -3, 1))
     '0 to 10'
     """
-    "*** YOUR CODE HERE ***"
+    f = lambda t: a*t*t + b*t + c
+    extreme_point = b / (-2 * a)
+    l, u, e = f(lower_bound(x)), f(upper_bound(x)), f(extreme_point)
+    if extreme_point < upper_bound(x) and extreme_point > lower_bound(x):
+        return interval(min([l, u, e]), max([l, u, e]))
+    else:
+        return interval(min([l, u]), max([l, u]))
 
 
-
-# Tree ADT
-
+########################
+#####   Tree ADT   #####
+########################
 def tree(label, branches=[]):
     """Construct a tree with the given label value and a list of branches."""
     for branch in branches:
