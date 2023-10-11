@@ -38,8 +38,8 @@ Log structure divided by each week:
     - [] 2.4
 - [x] Lab
     - [Tue 10 Oct 2023] Lab 05
-- [ ] Discussion
-    - [] Disc 05
+- [x] Discussion
+    - [Wed 11 Oct 2023] Disc 05
 - [x] Homework
     - [Wed 11 Oct 2023] Homework 03: Trees, Data Abstraction
 
