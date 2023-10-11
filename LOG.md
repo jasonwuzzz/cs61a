@@ -30,10 +30,10 @@ Log structure divided by each week:
     - [Wed 04 Oct 2023] p2.7 p3.8-3.10
 
 ### Week6
-- [ ] Lecture
+- [x] Lecture
     - [Tue 10 Oct 2023] Lec 13: Binary Numbers
     - [Tue 10 Oct 2023] Lec 14: Circuits
-    - [] Lec 15: Mutable Values
+    - [Wed 11 Oct 2023] Lec 15: Mutable Values
 - [ ] Reading
     - [] 2.4
 - [x] Lab
