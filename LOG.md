@@ -44,3 +44,19 @@ Log structure divided by each week:
     - [Wed 11 Oct 2023] Homework 03: Trees, Data Abstraction
 
 ### Week 7
+- [ ] Lecture
+    - [] Lec 16: Mutable Functions
+    - [] Lec 17: Iterators
+    - [] Lec 18: Objects
+- [ ] Reading
+    - [] 2.4
+    - [] 4.2
+    - [] 2.5
+- [ ] Lab
+    - [] Lab 06
+- [ ] Discussion
+    - [] Disc 06
+- [ ] Homework
+    - [] Homework 04: Nonlocal, Iterators
+
+### Week 8
