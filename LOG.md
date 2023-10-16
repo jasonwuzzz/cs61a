@@ -45,7 +45,7 @@ Log structure divided by each week:
 
 ### Week 7
 - [ ] Lecture
-    - [] Lec 16: Mutable Functions
+    - [Mon 16 Oct 2023] Lec 16: Mutable Functions
     - [] Lec 17: Iterators
     - [] Lec 18: Objects
 - [ ] Reading
