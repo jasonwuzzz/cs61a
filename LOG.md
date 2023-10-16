@@ -52,8 +52,8 @@ Log structure divided by each week:
     - [] 2.4
     - [] 4.2
     - [] 2.5
-- [ ] Lab
-    - [] Lab 06
+- [x] Lab
+    - [Mon 16 Oct 2023] Lab 06
 - [ ] Discussion
     - [] Disc 06
 - [ ] Homework
