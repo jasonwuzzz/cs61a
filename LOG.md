@@ -56,7 +56,7 @@ Log structure divided by each week:
     - [Mon 16 Oct 2023] Lab 06
 - [x] Discussion
     - [Mon 16 Oct 2023] Disc 06
-- [ ] Homework
-    - [] Homework 04: Nonlocal, Iterators
+- [x] Homework
+    - [Wed 18 Oct 2023] Homework 04: Nonlocal, Iterators
 
 ### Week 8
