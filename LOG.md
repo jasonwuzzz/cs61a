@@ -49,9 +49,9 @@ Log structure divided by each week:
     - [Mon 16 Oct 2023] Lec 17: Iterators
     - [Wed 18 Oct 2023] Lec 18: Objects
 - [ ] Reading
-    - [Mon 16 Oct 2023] 2.4
-    - [Wed 18 Oct 2023] 4.2
-    - [] 2.5
+    - [Mon 16 Oct 2023] 2.4: Mutable Data
+    - [Wed 18 Oct 2023] 4.2: Implicit Sequences
+    - [] 2.5: Object-Oriented Programming
 - [x] Lab
     - [Mon 16 Oct 2023] Lab 06
 - [x] Discussion
@@ -60,3 +60,19 @@ Log structure divided by each week:
     - [Wed 18 Oct 2023] Homework 04: Nonlocal, Iterators
 
 ### Week 8
+- [ ] Lecture
+    - [] Lec 19: Ineritance
+    - [] Lec 20: Representation
+    - [] Lec 21: Composition
+- [ ] Reading
+    - [] 2.5: Object-Oriented Programming 
+    - [] 2.7: Object Abstraction
+    - [] 2.9: Recursive Objects
+- [ ] Lab
+    - [] Lab 07
+- [ ] Discussion
+    - [] Disc 07
+- [ ] Homework
+    - [] Homework 05: OOP, Linked Lists, Trees
+- [ ] Project
+    - [] Ants
