@@ -50,7 +50,7 @@ Log structure divided by each week:
     - [Wed 18 Oct 2023] Lec 18: Objects
 - [ ] Reading
     - [Mon 16 Oct 2023] 2.4
-    - [] 4.2
+    - [Wed 18 Oct 2023] 4.2
     - [] 2.5
 - [x] Lab
     - [Mon 16 Oct 2023] Lab 06
