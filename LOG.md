@@ -61,7 +61,7 @@ Log structure divided by each week:
 
 ### Week 8
 - [ ] Lecture
-    - [] Lec 19: Ineritance
+    - [Fri 20 Oct 2023] Lec 19: Inheritance
     - [] Lec 20: Representation
     - [] Lec 21: Composition
 - [ ] Reading
