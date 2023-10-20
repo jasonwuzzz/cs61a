@@ -69,7 +69,7 @@ Log structure divided by each week:
     - [] 2.7: Object Abstraction
     - [] 2.9: Recursive Objects
 - [ ] Lab
-    - [] Lab 07
+    - [Fri 20 Oct 2023] Lab 07
 - [ ] Discussion
     - [] Disc 07
 - [ ] Homework
