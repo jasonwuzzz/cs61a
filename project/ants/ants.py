@@ -44,7 +44,6 @@ class Place:
     def __str__(self):
         return self.name
 
-
 class Insect:
     """An Insect, the base class of Ant and Bee, has armor and a Place."""
 
@@ -91,11 +90,9 @@ class Insect:
     def remove_from(self, place):
         self.place = None
 
-
     def __repr__(self):
         cname = type(self).__name__
         return '{0}({1}, {2})'.format(cname, self.armor, self.place)
-
 
 class Ant(Insect):
     """An Ant occupies a place and does work for the colony."""
@@ -142,6 +139,7 @@ class HarvesterAnt(Ant):
     name = 'Harvester'
     implemented = True
     # OVERRIDE CLASS ATTRIBUTES HERE
+    food_cost = 2
 
     def action(self, gamestate):
         """Produce 1 additional food for the colony.
@@ -149,9 +147,8 @@ class HarvesterAnt(Ant):
         gamestate -- The GameState, used to access game state information.
         """
         # BEGIN Problem 1
-        "*** YOUR CODE HERE ***"
+        gamestate.food += 1
         # END Problem 1
-
 
 class ThrowerAnt(Ant):
     """ThrowerAnt throws a leaf each turn at the nearest Bee in its range."""
@@ -160,6 +157,7 @@ class ThrowerAnt(Ant):
     implemented = True
     damage = 1
     # ADD/OVERRIDE CLASS ATTRIBUTES HERE
+    food_cost = 3
 
     def nearest_bee(self, beehive):
         """Return the nearest Bee in a Place that is not the HIVE (beehive), connected to
@@ -262,12 +260,9 @@ class HungryAnt(Ant):
         "*** YOUR CODE HERE ***"
         # END Problem 6
 
-
-
 # BEGIN Problem 7
 # The WallAnt class
 # END Problem 7
-
 
 class Water(Place):
     """Water is a place that can only hold watersafe insects."""
@@ -318,8 +313,6 @@ class QueenAnt(Ant):  # You should change this line
         "*** YOUR CODE HERE ***"
         # END Problem EC
 
-
-
 class AntRemover(Ant):
     """Allows the player to remove ants from the board in the GUI."""
 
@@ -335,7 +328,6 @@ class Bee(Insect):
     name = 'Bee'
     damage = 1
     # OVERRIDE CLASS ATTRIBUTES HERE
-
 
     def sting(self, ant):
         """Attack an ANT, reducing its armor by 1."""
@@ -462,6 +454,7 @@ class TankAnt(ContainerAnt):
         # BEGIN Problem Optional 3
         "*** YOUR CODE HERE ***"
         # END Problem Optional 3
+
 ############
 # Statuses #
 ############
@@ -503,7 +496,6 @@ class SlowThrower(ThrowerAnt):
     def throw_at(self, target):
         if target:
             apply_status(make_slow, target, 3)
-
 
 class ScaryThrower(ThrowerAnt):
     """ThrowerAnt that intimidates Bees, making them back away instead of advancing."""
@@ -550,10 +542,6 @@ class LaserAnt(ThrowerAnt):
             insect.reduce_armor(damage)
             if damage:
                 self.insects_shot += 1
-
-
-
-
 
 ##################
 # Bees Extension #
@@ -803,7 +791,6 @@ def wet_layout(queen, register_place, tunnels=3, length=9, moat_frequency=3):
 def dry_layout(queen, register_place, tunnels=3, length=9):
     """Register dry tunnels."""
     wet_layout(queen, register_place, tunnels, length, 0)
-
 
 #################
 # Assault Plans #
