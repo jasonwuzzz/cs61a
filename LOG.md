@@ -62,13 +62,13 @@ Log structure divided by each week:
 ### Week 8
 - [ ] Lecture
     - [Fri 20 Oct 2023] Lec 19: Inheritance
-    - [] Lec 20: Representation
+    - [Sat 21 Oct 2023] Lec 20: Representation
     - [] Lec 21: Composition
 - [ ] Reading
     - [Fri 20 Oct 2023] 2.5: Object-Oriented Programming 
     - [] 2.7: Object Abstraction
     - [] 2.9: Recursive Objects
-- [ ] Lab
+- [x] Lab
     - [Fri 20 Oct 2023] Lab 07
 - [ ] Discussion
     - [] Disc 07
