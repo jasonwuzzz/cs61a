@@ -284,7 +284,16 @@ class HungryAnt(Ant):
         # END Problem 6
 
 # BEGIN Problem 7
-# The WallAnt class
+class WallAnt(Ant):
+    """WallAnt does nothing but has a large armor value"""
+
+    name = "Wall"
+    food_cost = 4
+    implemented = True
+
+    def __init__(self, armor=4):
+        """Create an Ant with an ARMOR quantity."""
+        Ant.__init__(self, armor)
 # END Problem 7
 
 class Water(Place):
