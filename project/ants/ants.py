@@ -309,7 +309,13 @@ class Water(Place):
         # END Problem 8
 
 # BEGIN Problem 9
-# The ScubaThrower class
+class ScubaThrower(ThrowerAnt):
+    """A ThrowerAnt that is watersafe but costy"""
+
+    name = "Scuba"
+    food_cost = 6
+    is_watersafe = True
+    implemented = True
 # END Problem 9
 
 # BEGIN Problem EC
