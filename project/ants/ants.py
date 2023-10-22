@@ -319,20 +319,24 @@ class ScubaThrower(ThrowerAnt):
 # END Problem 9
 
 # BEGIN Problem EC
-class QueenAnt(Ant):  # You should change this line
+class QueenAnt(ScubaThrower):  # You should change this line
 # END Problem EC
     """The Queen of the colony. The game is over if a bee enters her place."""
 
     name = 'Queen'
     food_cost = 7
-    # OVERRIDE CLASS ATTRIBUTES HERE
+    is_queen = True
     # BEGIN Problem EC
-    implemented = False   # Change to True to view in the GUI
+    implemented = True   # Change to True to view in the GUI
     # END Problem EC
 
     def __init__(self, armor=1):
         # BEGIN Problem EC
-        "*** YOUR CODE HERE ***"
+        if QueenAnt.is_queen:
+            self.is_queen, QueenAnt.is_queen = True, False
+        else:
+            self.is_queen = False
+        ScubaThrower.__init__(self, armor)
         # END Problem EC
 
     def action(self, gamestate):
@@ -342,15 +346,39 @@ class QueenAnt(Ant):  # You should change this line
         Impostor queens do only one thing: reduce their own armor to 0.
         """
         # BEGIN Problem EC
-        "*** YOUR CODE HERE ***"
+        if self.is_queen:
+            ThrowerAnt.action(self, gamestate)                     # a queen ant throws a leaf
+            p = self.place
+            while p.exit != None:
+                p = p.exit                                         # repeatedly following its exit
+                if p.ant:
+                    if not hasattr(p.ant, "buffed"):
+                        p.ant.buffed = True
+                        p.ant.damage *= 2
+        else:
+            self.reduce_armor(self.armor)                          # imposter dose nothing but dies 
         # END Problem EC
+    
+    def remove_from(self, place):
+        """The true (first) queen cannot be removed"""
+
+        if self.is_queen:
+            pass    # attempts to remove the queen should have no effect
+        else:
+            ScubaThrower.remove_from(self, place)
+
 
     def reduce_armor(self, amount):
         """Reduce armor by AMOUNT, and if the True QueenAnt has no armor
         remaining, signal the end of the game.
         """
         # BEGIN Problem EC
-        "*** YOUR CODE HERE ***"
+        if not self.is_queen:
+            Insect.reduce_armor(self, self.armor)
+        else:
+            self.armor -= amount
+            if self.armor <= 0:
+                bees_win()
         # END Problem EC
 
 class AntRemover(Ant):
