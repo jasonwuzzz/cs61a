@@ -74,5 +74,5 @@ Log structure divided by each week:
     - [] Disc 07
 - [ ] Homework
     - [] Homework 05: OOP, Linked Lists, Trees
-- [ ] Project
-    - [] Ants
+- [x] Project
+    - [Mon 23 Oct 2023] Ants
