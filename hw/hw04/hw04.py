@@ -138,9 +138,8 @@ def permutations(seq):
     >>> sorted(permutations("ab"))
     [['a', 'b'], ['b', 'a']]
     """
-    seq = list(seq)
-    if len(seq) == 1:
-        yield seq
+    if len(seq) == 0:
+        yield []
     else:
         for sub_permutation in permutations(seq[1:]):
             for i in range(len(seq)):
