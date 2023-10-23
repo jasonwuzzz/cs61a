@@ -72,7 +72,7 @@ Log structure divided by each week:
     - [Fri 20 Oct 2023] Lab 07
 - [ ] Discussion
     - [] Disc 07
-- [ ] Homework
-    - [] Homework 05: OOP, Linked Lists, Trees
+- [x] Homework
+    - [Mon 23 Oct 2023] Homework 05: OOP, Linked Lists, Trees
 - [x] Project
     - [Mon 23 Oct 2023] Ants
