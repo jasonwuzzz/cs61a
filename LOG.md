@@ -60,10 +60,10 @@ Log structure divided by each week:
     - [Wed 18 Oct 2023] Homework 04: Nonlocal, Iterators
 
 ### Week 8
-- [ ] Lecture
+- [x] Lecture
     - [Fri 20 Oct 2023] Lec 19: Inheritance
     - [Sat 21 Oct 2023] Lec 20: Representation
-    - [] Lec 21: Composition
+    - [Mon 23 Oct 2023] Lec 21: Composition
 - [ ] Reading
     - [Fri 20 Oct 2023] 2.5: Object-Oriented Programming 
     - [] 2.7: Object Abstraction
