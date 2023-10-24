@@ -66,7 +66,7 @@ Log structure divided by each week:
     - [Mon 23 Oct 2023] Lec 21: Composition
 - [ ] Reading
     - [Fri 20 Oct 2023] 2.5: Object-Oriented Programming 
-    - [] 2.7: Object Abstraction
+    - [Tue 24 Oct 2023] 2.7: Object Abstraction
     - [] 2.9: Recursive Objects
 - [x] Lab
     - [Fri 20 Oct 2023] Lab 07
