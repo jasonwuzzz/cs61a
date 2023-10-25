@@ -70,8 +70,8 @@ Log structure divided by each week:
     - [] 2.9: Recursive Objects
 - [x] Lab
     - [Fri 20 Oct 2023] Lab 07
-- [ ] Discussion
-    - [] Disc 07
+- [x] Discussion
+    - [Wed 25 Oct 2023] Disc 07
 - [x] Homework
     - [Mon 23 Oct 2023] Homework 05: OOP, Linked Lists, Trees
 - [x] Project
