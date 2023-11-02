@@ -78,7 +78,7 @@ Log structure divided by each week:
     - [Mon 23 Oct 2023] Ants
 
 ### Week 9
-- [ ] [] Lecture 22: Efficiency
+- [x] [Thu 02 Nov 2023] Lecture 22: Efficiency
 - [ ] [] Lecture 23: Decomposition
 - [ ] [] Lecture 24: Data Examples
 - [ ] [] Reading 2.8: Efficiency

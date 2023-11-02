@@ -28,3 +28,36 @@ Take these three steps to gain a better understanding of the material and treat 
         - compress without losing the meaning
         - generalize takeways into rules and patterns
     - Go to cs61a.org/resources and complete at least 2-4 past exams, but ideally 5-7
+
+
+## Git Branch
+#### Abstraction Layers of Branches
+##### Layer 0: Main Branch `main`
+Tree root, stores basic files (README.md, .gitignore ...) that consist a repository.
+- Merge from: `develop``
+
+##### Layer 1: Develop Branch `develop`
+Tree trunk, stores LOG.md (used to update study progress and later weekly learning materials).
+- Merge into: `main`
+
+##### Layer 2: Weekly Branches `week-##`
+Most time working on these truly branches. Each weekly branch is totally independent from other weekly branches. Only the merging order in develop indicates their time-related order.
+- branch from:  `develop`
+- merge into: `develop`
+
+##### Layer 3: Hotfix Branches `hotfix-##`
+Small changes in weekly specific branches, probably happend later 
+- metaphor: many leaves
+- branch from: `week-##`
+- merge into: `week-##`
+- when to merge: everytime the fix is done
+#### Workflow
+0. Initialize an empty repository
+1. Create branches: `develop` and `main`
+2. Create `README.md`, `.gitignore`...  in `main`
+3. Create `LOG.md` in `develop`
+4. Branching `week-##`, making schedule in LOG.md, commiting on the weekly projects
+5. Move to the next week branch after this week is done, repeat 4
+6. Once occuring a problems, move back to previous week branches, Create `hotfix` branch, fix, and merge (vanish) into that week
+7. After some time (maybe a week or two after that week), if one week is considered complete and no potential problems, merge into `develop`
+8. After a lone time, merge `develop` into `main`
