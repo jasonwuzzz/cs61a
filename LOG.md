@@ -76,3 +76,12 @@ Log structure divided by each week:
     - [Mon 23 Oct 2023] Homework 05: OOP, Linked Lists, Trees
 - [x] Project
     - [Mon 23 Oct 2023] Ants
+
+### Week 9
+- [ ] [] Lecture 22: Efficiency
+- [ ] [] Lecture 23: Decomposition
+- [ ] [] Lecture 24: Data Examples
+- [ ] [] Reading 2.8: Efficiency
+- [ ] [] Lab 08: Linked Lists, Mutable Trees
+- [ ] [] Lab 09: Midterm Review
+- [ ] [] Disc 08: Linked Lists, Trees, Representation
