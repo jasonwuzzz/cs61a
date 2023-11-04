@@ -61,3 +61,46 @@ Small changes in weekly specific branches, probably happend later
 6. Once occuring a problems, move back to previous week branches, Create `hotfix` branch, fix, and merge (vanish) into that week
 7. After some time (maybe a week or two after that week), if one week is considered complete and no potential problems, merge into `develop`
 8. After a lone time, merge `develop` into `main`
+
+
+
+## About: CS 61A [Structure and Interpretation of Computer Programs](https://web.mit.edu/6.001/6.037/sicp.pdf)
+### Overview
+1. Topics - Abstraction, Funtional Programming, Object-oriented Programming
+2. Difficulty - Introductory
+3. Domain - Computer Science (focus on software & machine)
+4. Language Usage - Python 3, SQL, Scheme
+5. Prerequisites - some programming experience and math
+6. Afterwards - 
+
+### Course Format
+1. Lecture
+- A playlist of short videos: 30 - 45 min main content + 30 min Q&A
+- Typically 3 lectures a week
+2. Lab
+- straight forward programming practice
+- introduce new topics
+3. Homework
+- Apply the concepts learned in lecture to more challenging problems
+- The purpose of homework is for you to learn the course material, not to prove that you already know it
+4. Projects
+- Larger assignments combining multiple course concepts
+5. Reading
+- Online textbook [Composing Programs](www.composingprograms.com)
+- Complete reading before lecture
+6. Exams
+Midterm 1: ?
+Midterm 2: ?
+Final: ?
+### Course Grading
+300 pts: A+  ≥ 300    A  ≥ 285    A-  ≥ 270
+- Midterm 1, worth 40 points.
+- Midterm 2, worth 50 points.
+- The final exam, worth 75 points.
+- Four projects, worth 100 points.
+- Homework, worth 18 points.
+- Lab, worth 11 points.
+- Tutorials, worth 6 points.
+
+## What Would I Learn / What I've Learned?
+TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO 
