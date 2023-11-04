@@ -81,7 +81,7 @@ Log structure divided by each week:
 - [x] [Thu 02 Nov 2023] Lecture 22: Efficiency
 - [x] [Thu 02 Nov 2023] Lecture 23: Decomposition
 - [x] [Fri 03 Nov 2023] Lecture 24: Data Examples
-- [ ] [] Reading 2.8: Efficiency
+- [x] [Sat 04 Nov 2023] Reading 2.8: Efficiency
 - [x] [Thu 02 Nov 2023] Lab 08: Linked Lists, Mutable Trees
 - [x] [Fri 03 Nov 2023] Lab 09: Midterm Review
 - [x] [Fri 03 Nov 2023] Disc 08: Linked Lists, Trees, Representation
