@@ -95,7 +95,7 @@ Log structure divided by each week:
 - [ ] [] Lecture 27: Scheme
 - [ ] [] Lecture 28: Exceptions
 - [ ] [] Lecture 29: Calculator
-- [ ] [] Reading 3.1
+- [x] [Mon 06 Nov 2023] Reading 3.1
 - [ ] [] Reading 3.2
 - [ ] [] Reading 3.3
 - [ ] [] Reading 3.4
