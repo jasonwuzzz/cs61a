@@ -89,5 +89,5 @@ Log structure divided by each week:
 ### Week 10
 - [ ] [] Lecture 25: Users
 - [ ] [] Lecture 26: Ethical AI & Data
-- [ ] [] Midterm 2
+- [x] [Mon 06 Nov 2023] Midterm 2
 

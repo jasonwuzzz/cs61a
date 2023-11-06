@@ -94,13 +94,13 @@ Midterm 2: ?
 Final: ?
 ### Course Grading
 300 pts: A+  ≥ 300    A  ≥ 285    A-  ≥ 270
-- Midterm 1, worth 40 points.
-- Midterm 2, worth 50 points.
-- The final exam, worth 75 points.
-- Four projects, worth 100 points.
-- Homework, worth 18 points.
-- Lab, worth 11 points.
-- Tutorials, worth 6 points.
+- Midterm 1, worth 40 points.       38 / 40
+- Midte m 2, worth 50 points.       43 / 50
+- The final exam, worth 75 points.  ?  / 75
+- Four projects, worth 100 points.  100 / 100
+- Homework, worth 18 points.        18 / 100
+- Lab, worth 11 points.             13 / 13
+- Tutorials, worth 6 points.        6 / 6
 
 ## What Would I Learn / What I've Learned?
 TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO 
