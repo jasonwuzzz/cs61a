@@ -87,7 +87,7 @@ Log structure divided by each week:
 - [x] [Fri 03 Nov 2023] Disc 08: Linked Lists, Trees, Representation
 
 ### Week 10
-- [ ] [] Lecture 25: Users
+- [x] [Mon 06 Nov 2023] Lecture 25: Users
 - [ ] [] Lecture 26: Ethical AI & Data
 - [x] [Mon 06 Nov 2023] Midterm 2
 
