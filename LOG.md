@@ -101,6 +101,6 @@ Log structure divided by each week:
 - [ ] [] Reading 3.4
 - [x] [Tue 07 Nov 2023] Lab 10: Scheme
 - [ ] [] Disc 10: Scheme, Scheme Lists
-- [ ] [] Homework 06: Scheme
+- [x] [Tue 07 Nov 2023] Homework 06: Scheme
 - [ ] [] Homework 07: Scheme Lists
 - [ ] [] Resources
