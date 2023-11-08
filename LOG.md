@@ -93,7 +93,7 @@ Log structure divided by each week:
 
 ### Week 11
 - [x] [Tue 07 Nov 2023] Lecture 27: Scheme
-- [ ] [] Lecture 28: Exceptions
+- [x] [Wed 08 Nov 2023] Lecture 28: Exceptions
 - [ ] [] Lecture 29: Calculator
 - [x] [Mon 06 Nov 2023] Reading 3.1
 - [x] [Mon 06 Nov 2023] Reading 3.2
