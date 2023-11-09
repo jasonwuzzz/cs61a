@@ -98,7 +98,7 @@ Log structure divided by each week:
 - [x] [Mon 06 Nov 2023] Reading 3.1
 - [x] [Mon 06 Nov 2023] Reading 3.2
 - [x] [Wed 08 Nov 2023] Reading 3.3
-- [x] [Tue 07 Nov 2023] Reading 3.4
+- [x] [Thu 09 Nov 2023] Reading 3.4
 - [x] [Tue 07 Nov 2023] Lab 10: Scheme
 - [x] [Wed 08 Nov 2023] Disc 10: Scheme, Scheme Lists
 - [x] [Tue 07 Nov 2023] Homework 06: Scheme
@@ -108,7 +108,7 @@ Log structure divided by each week:
 ### Week 12
 - [ ] [] Lecture 30: Interpreters
 - [ ] [] Lecture 31: Declarative Programming
-- [ ] [] Reading 3.5
+- [x] [Thu 09 Nov 2023] Reading 3.5
 - [ ] [] Reading 4.3
 - [ ] [] Lab 11: Interpreters
 - [ ] [] Disc 11: Interpreters
