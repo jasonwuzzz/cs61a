@@ -24,7 +24,9 @@ from ucb import main, trace, interact
 from scheme_tokens import tokenize_lines, DELIMITERS
 from buffer import Buffer, InputReader, LineReader
 
-# Pairs and Scheme lists
+##########################
+# Pairs and Scheme lists #
+##########################
 
 class Pair(object):
     """A pair has two instance attributes: first and rest. rest must be a Pair or nil
@@ -89,7 +91,6 @@ class Pair(object):
         else:
             raise TypeError('ill-formed list (cdr is a promise)')
 
-
 class nil(object):
     """The empty list"""
 
@@ -110,9 +111,9 @@ class nil(object):
 
 nil = nil() # Assignment hides the nil class; there is only one instance
 
-# Scheme list parser
-
-
+######################
+# Scheme list parser #
+######################
 
 def scheme_read(src):
     """Read the next expression from SRC, a Buffer of tokens.
@@ -132,10 +133,12 @@ def scheme_read(src):
     if val == 'nil':
         # BEGIN PROBLEM 1
         "*** YOUR CODE HERE ***"
+        return nil
         # END PROBLEM 1
     elif val == '(':
         # BEGIN PROBLEM 1
         "*** YOUR CODE HERE ***"
+        return read_tail(src)
         # END PROBLEM 1
     elif val == "'":
         # BEGIN PROBLEM 6
@@ -145,6 +148,7 @@ def scheme_read(src):
         return val
     else:
         raise SyntaxError('unexpected token: {0}'.format(val))
+
 def read_tail(src):
     """Return the remainder of a list in SRC, starting before an element or ).
 
@@ -159,15 +163,24 @@ def read_tail(src):
         elif src.current() == ')':
             # BEGIN PROBLEM 1
             "*** YOUR CODE HERE ***"
+            src.pop_first()
+            return nil
             # END PROBLEM 1
         else:
             # BEGIN PROBLEM 1
             "*** YOUR CODE HERE ***"
+            # Both functions mutate the buffer, 
+            # removing the tokens that have already been processed.
+            first = scheme_read(src)    # Read the next complete expression in the buffer.
+            rest = read_tail(src)       # Read the rest of the combination until the matching closing parenthesis
+            return Pair(first, rest)   
             # END PROBLEM 1
     except EOFError:
         raise SyntaxError('unexpected end of file')
 
-# Convenience methods
+#######################
+# Convenience methods #
+#######################
 
 def buffer_input(prompt='scm> '):
     """Return a Buffer instance containing interactive input."""
@@ -203,7 +216,10 @@ def repl_str(val):
         return "\"" + repr(val[1:-1])[1:-1] + "\""
     return str(val)
 
-# Interactive loop
+####################
+# Interactive loop #
+####################
+
 def read_print_loop():
     """Run a read-print loop for Scheme expressions."""
     while True:
