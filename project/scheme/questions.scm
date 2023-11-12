@@ -6,7 +6,11 @@
 ; Some utility functions that you may find useful to implement
 
 (define (zip pairs)
-  'replace-this-line)
+  (if (null? pairs)
+      (list '() '())
+      (list
+        (cons (caar pairs) (car (zip (cdr pairs))))
+        (cons (car (cdar pairs)) (cadr (zip (cdr pairs)))))))
 
 
 ;; Problem 15
@@ -87,12 +91,12 @@
 (define (let-to-lambda expr)
   (cond ((atom? expr)
          ; BEGIN PROBLEM EC
-         'replace-this-line
+         expr
          ; END PROBLEM EC
          )
         ((quoted? expr)
          ; BEGIN PROBLEM EC
-         'replace-this-line
+         expr     ; First evaluate expr then return
          ; END PROBLEM EC
          )
         ((or (lambda? expr)
@@ -101,19 +105,21 @@
                (params (cadr expr))
                (body   (cddr expr)))
            ; BEGIN PROBLEM EC
-           'replace-this-line
+           (cons form (cons params (map let-to-lambda body)))     ; Parameters are not affected, but body does.
            ; END PROBLEM EC
            ))
         ((let? expr)
          (let ((values (cadr expr))
                (body   (cddr expr)))
            ; BEGIN PROBLEM EC
-           'replace-this-line
+           (cons
+            (cons 'lambda (cons (car (zip values)) (map let-to-lambda body)))   ; Body are affected
+            (map let-to-lambda (cadr (zip values))))                            ; So does binding expressions
            ; END PROBLEM EC
            ))
         (else
          ; BEGIN PROBLEM EC
-         'replace-this-line
+         (map let-to-lambda expr)   ; Tree recursive
          ; END PROBLEM EC
          )))
 
