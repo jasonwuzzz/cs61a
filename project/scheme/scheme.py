@@ -352,6 +352,13 @@ def do_and_form(expressions, env):
     """
     # BEGIN PROBLEM 12
     "*** YOUR CODE HERE ***"
+    val = True
+    while len(expressions) > 0:
+        val = scheme_eval(expressions.first, env)
+        if is_false_primitive(val):
+            return False
+        expressions = expressions.rest
+    return val
     # END PROBLEM 12
 
 def do_or_form(expressions, env):
@@ -369,6 +376,13 @@ def do_or_form(expressions, env):
     """
     # BEGIN PROBLEM 12
     "*** YOUR CODE HERE ***"
+    val = False
+    while len(expressions) > 0:
+        val = scheme_eval(expressions.first, env)
+        if is_true_primitive(val):
+            return val
+        expressions = expressions.rest
+    return val
     # END PROBLEM 12
 
 def do_cond_form(expressions, env):
