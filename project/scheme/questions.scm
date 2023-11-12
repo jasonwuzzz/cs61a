@@ -50,10 +50,28 @@
 ;; Problem 17
 
 (define (nondecreaselist s)
-    ; BEGIN PROBLEM 17
-    'replace-this-line
-    )
-    ; END PROBLEM 17
+  ; BEGIN PROBLEM 17
+  (define (find_rest s)
+      (cond
+        ((null? (cdr s))
+          nil)
+        ((> (car s) (cadr s))
+          (cdr s))
+        (else (find_rest (cdr s)))))
+  (define (find_first s)
+      (cond
+        ((null? s)
+          nil)
+        ((null? (cdr s))
+          (list (car s)))
+        ((<= (car s) (cadr s))
+          (cons (car s) (find_first (cdr s))))
+        (else (list (car s)))))
+  (if (null? s)
+    nil
+    (cons (find_first s) (nondecreaselist (find_rest s))))
+  )
+  ; END PROBLEM 17
 
 ;; Problem EC
 ;; Returns a function that checks if an expression is the special form FORM
