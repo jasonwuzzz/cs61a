@@ -38,9 +38,14 @@ def scheme_eval(expr, env, _=None): # Optional third argument is ignored
         "*** YOUR CODE HERE ***"
         procedure = scheme_eval(first, env)
         validate_procedure(procedure)
-        args = rest.map(lambda expr: scheme_eval(expr, env))
-        return scheme_apply(procedure, args, env)
+        if not isinstance(procedure, MacroProcedure):
+            args = rest.map(lambda expr: scheme_eval(expr, env))
+            return scheme_apply(procedure, args, env)
         # END PROBLEM 4
+        # BEGIN PROBLEM 20
+        else:
+            return scheme_eval(procedure.apply_macro(rest, env), env)
+        # END PROBLEM 20
 
 def self_evaluating(expr):
     """Return whether EXPR evaluates to itself."""
@@ -451,6 +456,17 @@ def do_define_macro(expressions, env):
     """
     # BEGIN Problem 20
     "*** YOUR CODE HERE ***"
+    validate_form(expressions, 2)
+    target = expressions.first
+    if isinstance(target, Pair) and scheme_symbolp(target.first):
+        name = target.first
+        formals = target.rest
+        body = expressions.rest
+        env.define(name, MacroProcedure(formals, body, env))
+        return name
+    else:
+        bad_target = target.first if isinstance(target, Pair) else target
+        raise SchemeError('non-symbol: {0}'.format(bad_target))
     # END Problem 20
 
 def do_quasiquote_form(expressions, env):
