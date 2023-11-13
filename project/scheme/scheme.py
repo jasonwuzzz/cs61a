@@ -12,7 +12,6 @@ from ucb import main, trace
 # Eval/Apply #
 ##############
 
-
 def scheme_eval(expr, env, _=None): # Optional third argument is ignored
     """Evaluate Scheme expression EXPR in environment ENV.
 
@@ -441,7 +440,6 @@ def make_let_frame(bindings, env):
     # END PROBLEM 14
     return env.make_child_frame(names, values)
 
-
 def do_define_macro(expressions, env):
     """Evaluate a define-macro form.
 
@@ -454,7 +452,6 @@ def do_define_macro(expressions, env):
     # BEGIN Problem 20
     "*** YOUR CODE HERE ***"
     # END Problem 20
-
 
 def do_quasiquote_form(expressions, env):
     """Evaluate a quasiquote form with parameters EXPRESSIONS in
@@ -480,7 +477,6 @@ def do_quasiquote_form(expressions, env):
 
 def do_unquote(expressions, env):
     raise SchemeError('unquote outside of quasiquote')
-
 
 SPECIAL_FORMS = {
     'and': do_and_form,
@@ -533,7 +529,6 @@ def validate_formals(formals):
         validate_and_add(formals.first, formals.rest is nil)
         formals = formals.rest
 
-
 def validate_procedure(procedure):
     """Check that PROCEDURE is a valid Scheme procedure."""
     if not scheme_procedurep(procedure):
@@ -564,6 +559,10 @@ class MuProcedure(Procedure):
 
     # BEGIN PROBLEM 18
     "*** YOUR CODE HERE ***"
+    def make_call_frame(self, args, env):
+        """Make a frame that binds formal parameters to ARGS, a Scheme list
+        of values, for a dynamically-scoped call evaluate in environment ENV"""
+        return env.make_child_frame(self.formals, args)
     # END PROBLEM 18
 
     def __str__(self):
@@ -580,6 +579,7 @@ def do_mu_form(expressions, env):
     validate_formals(formals)
     # BEGIN PROBLEM 18
     "*** YOUR CODE HERE ***"
+    return MuProcedure(expressions.first, expressions.rest)
     # END PROBLEM 18
 
 SPECIAL_FORMS['mu'] = do_mu_form
@@ -655,20 +655,10 @@ def optimize_tail_calls(original_scheme_eval):
         # END PROBLEM 19
     return optimized_eval
 
-
-
-
-
-
 ################################################################
 # Uncomment the following line to apply tail call optimization #
 ################################################################
 # scheme_eval = optimize_tail_calls(scheme_eval)
-
-
-
-
-
 
 ####################
 # Extra Procedures #
