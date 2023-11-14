@@ -81,7 +81,11 @@ def eval_all(expressions, env):
         return None
     else:
         while expressions is not nil:
-            val = scheme_eval(expressions.first, env)
+            """ The last expr of eval_all in the body of LAMBDA CALL EXPR and
+            BEGIN, LET, COND special forms needs to be tail-optimized."""
+            # This indicator tells scheme_eval to passes expr as a Thunk and closes its frame.
+            in_tail_context = True if expressions.rest is nil else False
+            val = scheme_eval(expressions.first, env, in_tail_context)
             expressions = expressions.rest
         return val
     # END PROBLEM 7
@@ -337,9 +341,9 @@ def do_if_form(expressions, env):
     """
     validate_form(expressions, 2, 3)
     if is_true_primitive(scheme_eval(expressions.first, env)):
-        return scheme_eval(expressions.rest.first, env)
+        return scheme_eval(expressions.rest.first, env, True)
     elif len(expressions) == 3:
-        return scheme_eval(expressions.rest.rest.first, env)
+        return scheme_eval(expressions.rest.rest.first, env, True)
 
 def do_and_form(expressions, env):
     """Evaluate a (short-circuited) and form.
@@ -358,7 +362,8 @@ def do_and_form(expressions, env):
     "*** YOUR CODE HERE ***"
     val = True
     while len(expressions) > 0:
-        val = scheme_eval(expressions.first, env)
+        in_tail_context = True if expressions.rest is nil else False
+        val = scheme_eval(expressions.first, env, in_tail_context)
         if is_false_primitive(val):
             return False
         expressions = expressions.rest
@@ -382,7 +387,8 @@ def do_or_form(expressions, env):
     "*** YOUR CODE HERE ***"
     val = False
     while len(expressions) > 0:
-        val = scheme_eval(expressions.first, env)
+        in_tail_context = True if expressions.rest is nil else False
+        val = scheme_eval(expressions.first, env, in_tail_context)
         if is_true_primitive(val):
             return val
         expressions = expressions.rest
@@ -662,19 +668,28 @@ def optimize_tail_calls(original_scheme_eval):
         """Evaluate Scheme expression EXPR in environment ENV. If TAIL,
         return a Thunk containing an expression for further evaluation.
         """
+        # The very first call to scheme_eval is not a tail call, so we wrap up the whole expression and
+        # repeatedly evaluate it with the original eval function until it is not a Thunk instance (value),
+        # which means the first frame is always open, but any tail calls would be CLOSED properly.
         if tail and not scheme_symbolp(expr) and not self_evaluating(expr):
             return Thunk(expr, env)
 
         result = Thunk(expr, env)
         # BEGIN PROBLEM 19
         "*** YOUR CODE HERE ***"
+        while isinstance(result, Thunk):
+            # Tail call optimization happens here!
+            # Each tail call passs the expr in the tail context to RESULT
+            # for further evaluation and closes its frame without creating a huge stack of frames.
+            result = original_scheme_eval(result.expr, result.env)
+        return result
         # END PROBLEM 19
     return optimized_eval
 
 ################################################################
 # Uncomment the following line to apply tail call optimization #
 ################################################################
-# scheme_eval = optimize_tail_calls(scheme_eval)
+scheme_eval = optimize_tail_calls(scheme_eval)
 
 ####################
 # Extra Procedures #
