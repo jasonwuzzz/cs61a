@@ -30,17 +30,17 @@ Log structure divided by each week:
     - [Wed 04 Oct 2023] p2.7 p3.8-3.10
 
 ### Week6
-- [ ] Lecture
-    - [] Lec 13: Binary Numbers
-    - [] Lec 14: Circuits
-    - [] Lec 15: Mutable Values
+- [x] Lecture
+    - [Tue 10 Oct 2023] Lec 13: Binary Numbers
+    - [Tue 10 Oct 2023] Lec 14: Circuits
+    - [Wed 11 Oct 2023] Lec 15: Mutable Values
 - [ ] Reading
     - [] 2.4
-- [ ] Lab
-    - [] Lab 05
-- [ ] Discussion
-    - [] Disc 05
-- [ ] Homework
-    - [] Homework 03: Trees, Data Abstraction
+- [x] Lab
+    - [Tue 10 Oct 2023] Lab 05
+- [x] Discussion
+    - [Wed 11 Oct 2023] Disc 05
+- [x] Homework
+    - [Wed 11 Oct 2023] Homework 03: Trees, Data Abstraction
 
 ### Week 7
