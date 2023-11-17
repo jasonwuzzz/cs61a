@@ -91,3 +91,16 @@ Log structure divided by each week:
 - [x] [Mon 06 Nov 2023] Lecture 26: Ethical AI & Data
 - [x] [Mon 06 Nov 2023] Midterm 2
 
+### Week 11
+- [x] [Tue 07 Nov 2023] Lecture 27: Scheme
+- [x] [Wed 08 Nov 2023] Lecture 28: Exceptions
+- [x] [Thu 09 Nov 2023] Lecture 29: Calculator
+- [x] [Mon 06 Nov 2023] Reading 3.1
+- [x] [Mon 06 Nov 2023] Reading 3.2
+- [x] [Wed 08 Nov 2023] Reading 3.3
+- [x] [Tue 07 Nov 2023] Reading 3.4
+- [x] [Tue 07 Nov 2023] Lab 10: Scheme
+- [x] [Wed 08 Nov 2023] Disc 10: Scheme, Scheme Lists
+- [x] [Tue 07 Nov 2023] Homework 06: Scheme
+- [x] [Wed 08 Nov 2023] Homework 07: Scheme Lists
+- [ ] [] Resources
