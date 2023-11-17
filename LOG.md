@@ -115,5 +115,5 @@ Log structure divided by each week:
 - [x] [Thu 16 Nov 2023] Tail Recursion, Macros, Streams (Summer 2020)
 - [ ] [] Resources
 - [x] [Fri 17 Nov 2023] Lecture 31: Declarative Programming
-- [ ] [] Reading 4.3
+- [x] [Fri 17 Nov 2023] Reading 4.3
 
