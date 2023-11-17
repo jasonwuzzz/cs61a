@@ -34,8 +34,8 @@ Log structure divided by each week:
     - [Tue 10 Oct 2023] Lec 13: Binary Numbers
     - [Tue 10 Oct 2023] Lec 14: Circuits
     - [Wed 11 Oct 2023] Lec 15: Mutable Values
-- [ ] Reading
-    - [] 2.4
+- [x] Reading
+    - [Mon 16 Oct 2023] 2.4: Mutable Data
 - [x] Lab
     - [Tue 10 Oct 2023] Lab 05
 - [x] Discussion
@@ -48,10 +48,10 @@ Log structure divided by each week:
     - [Mon 16 Oct 2023] Lec 16: Mutable Functions
     - [Mon 16 Oct 2023] Lec 17: Iterators
     - [Wed 18 Oct 2023] Lec 18: Objects
-- [ ] Reading
-    - [Mon 16 Oct 2023] 2.4
-    - [Wed 18 Oct 2023] 4.2
-    - [] 2.5
+- [x] Reading
+    - [Mon 16 Oct 2023] 2.4: Mutable Data
+    - [Wed 18 Oct 2023] 4.2: Implicit Sequences
+    - [Fri 20 Oct 2023] 2.5: Object-Oriented Programming
 - [x] Lab
     - [Mon 16 Oct 2023] Lab 06
 - [x] Discussion
@@ -60,3 +60,19 @@ Log structure divided by each week:
     - [Wed 18 Oct 2023] Homework 04: Nonlocal, Iterators
 
 ### Week 8
+- [x] Lecture
+    - [Fri 20 Oct 2023] Lec 19: Inheritance
+    - [Sat 21 Oct 2023] Lec 20: Representation
+    - [Mon 23 Oct 2023] Lec 21: Composition
+- [x] Reading
+    - [Fri 20 Oct 2023] 2.5: Object-Oriented Programming 
+    - [Tue 24 Oct 2023] 2.7: Object Abstraction
+    - [Sat 04 Nov 2023] 2.9: Recursive Objects
+- [x] Lab
+    - [Fri 20 Oct 2023] Lab 07
+- [x] Discussion
+    - [Wed 25 Oct 2023] Disc 07
+- [x] Homework
+    - [Mon 23 Oct 2023] Homework 05: OOP, Linked Lists, Trees
+- [x] Project
+    - [Mon 23 Oct 2023] Ants
