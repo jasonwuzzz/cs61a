@@ -114,27 +114,36 @@ def max_subseq(n, t):
     >>> max_subseq(12345, 1)
     5
     """
-    def helper(n, t):
-        """
-        Find all the subsequences of n at the length of t.
-        """
-        # Base Case 1: Return all the numbers in n
-        if t == 1:
-            return [int(i) for i in str(n)]
-        # Base Case 2: n is a single digit or the length of n is t.
-        elif n < 10 or len(str(n)) == t:
-            return [n]
-        # Recursive Case: Consider whether use the last digit or not
-        else:
-            # if use the last digit
-            use_last = [x * 10 + n % 10 for x in helper(n // 10, t - 1)]
-            not_use_last = helper(n // 10, t)
-            return use_last + not_use_last    
-    # 0 is of length of 0
-    if t == 0:
-        return 0
+    # def helper(n, t):
+    #     """
+    #     Find all the subsequences of n at the length of t.
+    #     """
+    #     # Base Case 1: Return all the numbers in n
+    #     if t == 1:
+    #         return [int(i) for i in str(n)]
+    #     # Base Case 2: n is a single digit or the length of n is t.
+    #     elif n < 10 or len(str(n)) == t:
+    #         return [n]
+    #     # Recursive Case: Consider whether use the last digit or not
+    #     else:
+    #         # if use the last digit
+    #         use_last = [x * 10 + n % 10 for x in helper(n // 10, t - 1)]
+    #         not_use_last = helper(n // 10, t)
+    #         return use_last + not_use_last    
+    # # 0 is of length of 0
+    # if t == 0:
+    #     return 0
+    # else:
+    #     return max([max(helper(n, i)) for i in range(1, t + 1)]) 
+    """Better version in Lecture 19 Q&A"""
+    if t == 0 or n == 0:
+      return 0 
     else:
-        return max([max(helper(n, i)) for i in range(1, t + 1)]) 
+      last_digit = n % 10
+      rest = n // 10
+      keep_last_digit = max_subseq(rest, t - 1) * 10 + last_digit
+      drop_last_digit = max_subseq(rest, t)
+      return max(keep_last_digit, drop_last_digit)
 
 
 def add_chars(w1, w2):
