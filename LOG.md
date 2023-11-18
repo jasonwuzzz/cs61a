@@ -120,5 +120,5 @@ Log structure divided by each week:
 - [ ] [] Lecture 34: Databases
 - [x] [Sat 18 Nov 2023] Lab 12: SQL
 - [x] [Sat 18 Nov 2023] Disc 12: SQL
-- [ ] [] Homework 09: SQL
+- [x] [Sat 18 Nov 2023] Homework 09: SQL
 - [ ] [] Resources
