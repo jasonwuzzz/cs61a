@@ -119,6 +119,6 @@ Log structure divided by each week:
 - [x] [Fri 17 Nov 2023] Lecture 33: Aggragation
 - [ ] [] Lecture 34: Databases
 - [x] [Sat 18 Nov 2023] Lab 12: SQL
-- [ ] [] Disc 12: SQL
+- [x] [Sat 18 Nov 2023] Disc 12: SQL
 - [ ] [] Homework 09: SQL
 - [ ] [] Resources
